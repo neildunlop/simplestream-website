@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npx create-next-app:*)",
       "Bash(npx create-next-app@latest:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(where:*)",
+      "Bash(del \"F:\\Dev\\thesimplestream-website\\src\\app\\favicon.ico\")",
+      "Bash(npx tsc --noEmit)"
     ],
     "deny": [],
     "ask": []
