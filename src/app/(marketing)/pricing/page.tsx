@@ -12,22 +12,22 @@ const plans = [
   {
     name: 'Starter',
     price: 199,
-    description: 'Perfect for small retailers just getting started with live shopping.',
+    description: 'Perfect for testing live commerce and occasional streams.',
     streams: 10,
-    viewers: 50,
+    viewers: 35,
     duration: '2 hours',
     storage: '25 GB',
-    quality: '720p',
     retention: '7 days',
+    teamMembers: 1,
     features: [
       { name: 'Shopify Integration', included: true },
-      { name: 'HD Live Streaming', included: true },
+      { name: 'HD Streaming (Adaptive)', included: true },
       { name: 'Product Overlays', included: true },
-      { name: 'Live Chat', included: true },
+      { name: 'Live Chat & Moderation', included: true },
       { name: 'Basic Analytics', included: true },
-      { name: 'Email Support', included: true },
-      { name: 'Scheduled Streams', included: false },
-      { name: 'Multi-Product Display', included: false },
+      { name: 'Email Support (1 business day)', included: true },
+      { name: 'Scheduled Streams', included: true },
+      { name: 'Multi-Product Display', included: true },
       { name: 'Custom Branding', included: false },
       { name: 'Priority Support', included: false },
     ],
@@ -35,48 +35,48 @@ const plans = [
   {
     name: 'Professional',
     price: 499,
-    description: 'For growing retailers who stream regularly and need more capacity.',
-    streams: 20,
-    viewers: 75,
+    description: 'For growing retailers who stream regularly. All features unlocked.',
+    streams: 25,
+    viewers: 100,
     duration: '4 hours',
     storage: '100 GB',
-    quality: '1080p',
     retention: '30 days',
+    teamMembers: 5,
     featured: true,
     features: [
       { name: 'Shopify Integration', included: true },
-      { name: 'Full HD Streaming', included: true },
+      { name: 'HD Streaming (Adaptive)', included: true },
       { name: 'Product Overlays', included: true },
-      { name: 'Live Chat', included: true },
+      { name: 'Live Chat & Moderation', included: true },
       { name: 'Advanced Analytics', included: true },
-      { name: 'Chat & Email Support', included: true },
+      { name: 'Priority Support (4-hour response)', included: true },
       { name: 'Scheduled Streams', included: true },
       { name: 'Multi-Product Display', included: true },
-      { name: 'Custom Branding', included: false },
-      { name: 'Priority Support', included: false },
+      { name: 'Custom Branding', included: true },
+      { name: 'Chat Support', included: true },
     ],
   },
   {
     name: 'Business',
     price: 999,
-    description: 'For established retailers with high-volume streaming needs.',
-    streams: 30,
-    viewers: 100,
+    description: 'For high-volume retailers with teams. API access included.',
+    streams: 40,
+    viewers: 150,
     duration: '6 hours',
     storage: '500 GB',
-    quality: '1080p',
     retention: '90 days',
+    teamMembers: 20,
     features: [
       { name: 'Shopify Integration', included: true },
-      { name: 'Full HD Streaming', included: true },
+      { name: 'HD Streaming (Adaptive)', included: true },
       { name: 'Product Overlays', included: true },
-      { name: 'Live Chat', included: true },
+      { name: 'Live Chat & Moderation', included: true },
       { name: 'Full Analytics Suite', included: true },
-      { name: 'Priority Support', included: true },
+      { name: 'Phone Support (1-hour response)', included: true },
       { name: 'Scheduled Streams', included: true },
       { name: 'Multi-Product Display', included: true },
-      { name: 'Custom Branding', included: true },
-      { name: 'Phone Support', included: true },
+      { name: 'Custom Branding & CSS', included: true },
+      { name: 'API Access', included: true },
     ],
   },
 ];
@@ -89,7 +89,7 @@ const faqs = [
   {
     question: 'Can I change plans?',
     answer:
-      'Yes, upgrade or downgrade anytime. Upgrades are immediate. Downgrades take effect at the next billing cycle.',
+      'Yes! Upgrade anytime (takes effect immediately). Downgrade anytime (takes effect next billing cycle). No penalties.',
   },
   {
     question: 'Is there a contract?',
@@ -99,27 +99,27 @@ const faqs = [
   {
     question: 'What happens if I exceed my limits?',
     answer:
-      "We'll notify you when you're approaching limits. You can upgrade your plan or purchase additional capacity.",
+      "We'll notify you before you hit limits. You can upgrade or purchase additional capacity. We'll never cut you off mid-stream.",
   },
   {
     question: 'Do you take a commission on sales?',
     answer:
-      'No! Unlike marketplace platforms, we charge 0% commission. All your revenue is yours.',
+      'No! Unlike marketplace platforms, we charge 0% commission. All your revenue is yours. If you sell £10,000/month on marketplaces, you might pay £800 in commission (8%). With us, you pay £0.',
   },
   {
     question: 'Is there a free trial?',
     answer:
-      'Yes! All plans include a 14-day free trial. No credit card required to start.',
+      'Yes! All plans include a 14-day free trial with full access to your chosen plan\'s features. No credit card required to start.',
+  },
+  {
+    question: 'What streaming quality do I get?',
+    answer:
+      'All plans include professional HD streaming with adaptive bitrate technology. Viewers automatically receive the best quality for their internet connection, ensuring smooth, buffer-free viewing for everyone.',
   },
   {
     question: 'What Shopify plans do you support?',
     answer:
-      'We support all Shopify plans, from Basic to Plus. Integration works via the Storefront API.',
-  },
-  {
-    question: 'Can I use my own domain?',
-    answer:
-      'Yes! You can embed the player on your own website or use our hosted pages with custom branding.',
+      'We support all Shopify plans - Basic, Shopify, Advanced, and Shopify Plus. Integration works seamlessly via the Storefront API.',
   },
 ];
 
@@ -184,7 +184,7 @@ export default function PricingPage() {
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span>Up to {plan.quality} quality</span>
+                  <span>{plan.teamMembers} team member{plan.teamMembers > 1 ? 's' : ''}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -207,7 +207,7 @@ export default function PricingPage() {
                 ))}
               </div>
 
-              <Link href="/signup">
+              <a href="https://app.thesimplestream.com/register">
                 <Button
                   className="w-full"
                   variant={plan.featured ? 'default' : 'outline'}
@@ -215,7 +215,7 @@ export default function PricingPage() {
                 >
                   Start Free Trial
                 </Button>
-              </Link>
+              </a>
             </div>
           ))}
         </div>
@@ -227,22 +227,21 @@ export default function PricingPage() {
               <div>
                 <h3 className="text-2xl font-bold mb-4">Enterprise</h3>
                 <p className="text-gray-300 mb-6">
-                  For large retailers with custom requirements. Unlimited streams,
-                  unlimited viewers, 4K streaming, dedicated support, and custom
-                  integrations.
+                  For major retailers with complex needs. White-label solution with
+                  unlimited capacity and dedicated support.
                 </p>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-green-400" />
-                    Unlimited streams
+                    Unlimited streams & viewers
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-green-400" />
-                    Unlimited concurrent viewers
+                    4K streaming available
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-green-400" />
-                    4K streaming quality
+                    White-label & 99.9% SLA
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-green-400" />
@@ -250,13 +249,17 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-green-400" />
-                    Custom integrations
+                    Custom integrations & SSO
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-400" />
+                    24/7 priority support
                   </li>
                 </ul>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold mb-2">Custom Pricing</p>
-                <p className="text-gray-400 mb-6">Tailored to your needs</p>
+                <p className="text-gray-400 mb-6">Tailored to your requirements</p>
                 <Link href="/contact">
                   <Button variant="secondary" size="lg">
                     Contact Sales
@@ -283,11 +286,15 @@ export default function PricingPage() {
           </div>
           <div className="flex items-center gap-2">
             <Check className="w-5 h-5 text-green-500" />
-            0% sales commission
+            0% commission
           </div>
           <div className="flex items-center gap-2">
             <Check className="w-5 h-5 text-green-500" />
-            No credit card required
+            HD streaming
+          </div>
+          <div className="flex items-center gap-2">
+            <Check className="w-5 h-5 text-green-500" />
+            GDPR compliant
           </div>
         </div>
 
@@ -321,9 +328,9 @@ export default function PricingPage() {
           <p className="text-gray-600 mb-6">
             Start your 14-day free trial today. No credit card required.
           </p>
-          <Link href="/signup">
+          <a href="https://app.thesimplestream.com/register">
             <Button size="lg">Start Free Trial</Button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

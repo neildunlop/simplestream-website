@@ -78,9 +78,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/signup" className="hover:text-white transition-colors">
+                <a href="https://app.thesimplestream.com/register" className="hover:text-white transition-colors">
                   Start Free Trial
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

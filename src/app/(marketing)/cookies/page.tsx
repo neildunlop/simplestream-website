@@ -164,8 +164,6 @@ export default function CookiesPage() {
           </p>
           <p>
             Email: privacy@thesimplestream.com
-            <br />
-            Address: London, United Kingdom
           </p>
         </div>
       </div>

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | The Simple Stream</title>
+    <meta name="description" content="Simple, transparent pricing for live shopping. Plans from £199/month. 14-day free trial. 0% commission.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Grid */
+        .pricing-section {
+            padding: 80px 20px;
+            background: #f9fafb;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .pricing-card.featured {
+            border-color: #667eea;
+            transform: scale(1.03);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-header h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .card-subtitle {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 24px;
+            min-height: 48px;
+        }
+
+        .price {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .price-period {
+            font-size: 18px;
+            color: #6b7280;
+            margin-left: 8px;
+        }
+
+        .price-custom {
+            font-size: 24px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .price-description {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+
+        .capacity-section {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .capacity-section h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .capacity-list {
+            list-style: none;
+        }
+
+        .capacity-list li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+        }
+
+        .capacity-list li::before {
+            content: "→";
+            margin-right: 8px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .features-section {
+            margin-bottom: 24px;
+        }
+
+        .features-section h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #4b5563;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li.included::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .feature-list li.excluded::before {
+            content: "✗";
+            color: #ef4444;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .feature-list li.warning::before {
+            content: "⚠";
+            color: #f59e0b;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .feature-list li strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .best-for {
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            border-radius: 4px;
+        }
+
+        .best-for p {
+            font-size: 13px;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .best-for strong {
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: #667eea;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .cta-button.secondary:hover {
+            background: #f9fafb;
+        }
+
+        .note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .comparison-section h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+
+        .comparison-table {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .table-header {
+            background: #f3f4f6;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .checkmark {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .crossmark {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        /* Trust Signals */
+        .trust-signals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 60px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .trust-item .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .trust-item p {
+            font-size: 14px;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 20px;
+            background: #f9fafb;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .faq-item .highlight {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button-group .cta-button {
+            width: auto;
+            min-width: 200px;
+        }
+
+        .button-group .cta-button.white {
+            background: white;
+            color: #667eea;
+        }
+
+        .button-group .cta-button.white:hover {
+            background: #f9fafb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-section h2,
+            .faq-section h2,
+            .final-cta h2 {
+                font-size: 28px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button-group .cta-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Simple Pricing That Scales With Your Business</h1>
+            <p>Start small. Grow big. No surprises. All plans include a 14-day free trial.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pricing-section">
+        <div class="pricing-grid">
+            
+            <!-- Starter Plan -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>Starter</h3>
+                    <p class="card-subtitle">Launch Your Live Shopping<br>Perfect for testing live commerce</p>
+                </div>
+
+                <div class="price">
+                    <span class="price-amount">£199</span>
+                    <span class="price-period">/month</span>
+                </div>
+                <p class="price-description">Test the waters with essential features</p>
+
+                <div class="capacity-section">
+                    <h4>Streaming Capacity</h4>
+                    <ul class="capacity-list">
+                        <li>10 streams per month</li>
+                        <li>Up to 35 concurrent viewers</li>
+                        <li>2 hours max stream duration</li>
+                        <li>25 GB recording storage</li>
+                        <li>7 days replay retention</li>
+                    </ul>
+                </div>
+
+                <div class="features-section">
+                    <h4>Core Features</h4>
+                    <ul class="feature-list">
+                        <li class="included">Shopify Integration</li>
+                        <li class="included">Live Streaming & Product Overlays</li>
+                        <li class="included">Live Chat & Moderation</li>
+                        <li class="included">Basic Analytics (views, sales)</li>
+                        <li class="included">Email Support (1 business day)</li>
+                        <li class="included">Scheduled Streams</li>
+                        <li class="included">Multi-Product Display</li>
+                    </ul>
+                </div>
+
+                <div class="features-section">
+                    <h4>Limitations</h4>
+                    <ul class="feature-list">
+                        <li class="warning">1 team member only</li>
+                        <li class="warning">Platform branding (not customizable)</li>
+                        <li class="warning">Standard support response time</li>
+                    </ul>
+                </div>
+
+                <div class="best-for">
+                    <p><strong>Best for:</strong> Testing live shopping, occasional streams, solo operations</p>
+                </div>
+
+                <a href="/signup" class="cta-button">Start Free Trial</a>
+                <p class="note">14 days free • No credit card required</p>
+            </div>
+
+            <!-- Professional Plan -->
+            <div class="pricing-card featured">
+                <span class="popular-badge">Most Popular</span>
+                
+                <div class="card-header">
+                    <h3>Professional</h3>
+                    <p class="card-subtitle">Grow Your Live Business<br>For retailers streaming regularly</p>
+                </div>
+
+                <div class="price">
+                    <span class="price-amount">£499</span>
+                    <span class="price-period">/month</span>
+                </div>
+                <p class="price-description">Full features unlock at this tier</p>
+
+                <div class="capacity-section">
+                    <h4>Streaming Capacity</h4>
+                    <ul class="capacity-list">
+                        <li>25 streams per month</li>
+                        <li>Up to 100 concurrent viewers</li>
+                        <li>4 hours max stream duration</li>
+                        <li>100 GB recording storage</li>
+                        <li>30 days replay retention</li>
+                    </ul>
+                </div>
+
+                <div class="features-section">
+                    <h4>Everything in Starter, PLUS:</h4>
+                    <ul class="feature-list">
+                        <li class="included"><strong>Custom Branding</strong> (your logo, colors)</li>
+                        <li class="included"><strong>Advanced Analytics</strong> (funnels, retention, heatmaps)</li>
+                        <li class="included"><strong>5 Team Members</strong> (hosts, moderators, analysts)</li>
+                        <li class="included"><strong>Priority Support</strong> (4-hour response)</li>
+                        <li class="included"><strong>Chat Support</strong> (in addition to email)</li>
+                        <li class="included">Stream Templates</li>
+                        <li class="included">Advanced Moderation Tools</li>
+                        <li class="included">Viewer Insights & Reports</li>
+                    </ul>
+                </div>
+
+                <div class="best-for">
+                    <p><strong>Best for:</strong> Regular streamers (weekly+), growing customer base, small teams</p>
+                </div>
+
+                <a href="/signup" class="cta-button">Start Free Trial</a>
+                <p class="note">💡 Most customers choose Professional</p>
+            </div>
+
+            <!-- Business Plan -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>Business</h3>
+                    <p class="card-subtitle">Scale Your Operation<br>For high-volume retailers with teams</p>
+                </div>
+
+                <div class="price">
+                    <span class="price-amount">£999</span>
+                    <span class="price-period">/month</span>
+                </div>
+                <p class="price-description">Team features and API access</p>
+
+                <div class="capacity-section">
+                    <h4>Streaming Capacity</h4>
+                    <ul class="capacity-list">
+                        <li>40 streams per month</li>
+                        <li>Up to 150 concurrent viewers</li>
+                        <li>6 hours max stream duration</li>
+                        <li>500 GB recording storage</li>
+                        <li>90 days replay retention</li>
+                    </ul>
+                </div>
+
+                <div class="features-section">
+                    <h4>Everything in Professional, PLUS:</h4>
+                    <ul class="feature-list">
+                        <li class="included"><strong>20 Team Members</strong> with role-based permissions</li>
+                        <li class="included"><strong>Phone Support</strong> (1-hour response)</li>
+                        <li class="included"><strong>API Access</strong> (webhooks, data export)</li>
+                        <li class="included"><strong>Full Analytics Suite</strong> (LTV, attribution, cohorts)</li>
+                        <li class="included"><strong>Custom CSS</strong> (advanced branding)</li>
+                        <li class="included">Multi-Stream Dashboard</li>
+                        <li class="included">Activity Logging</li>
+                        <li class="included">Onboarding Call</li>
+                    </ul>
+                </div>
+
+                <div class="best-for">
+                    <p><strong>Best for:</strong> Daily streaming, large audiences, team operations, advanced integrations</p>
+                </div>
+
+                <a href="/signup" class="cta-button">Start Free Trial</a>
+                <p class="note">14 days free • No credit card required</p>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>Enterprise</h3>
+                    <p class="card-subtitle">Custom Solution<br>For major retailers with complex needs</p>
+                </div>
+
+                <div class="price-custom">Custom Pricing</div>
+                <p class="price-description">Tailored to your requirements</p>
+
+                <div class="capacity-section">
+                    <h4>Unlimited Capacity</h4>
+                    <ul class="capacity-list">
+                        <li>Unlimited streams</li>
+                        <li>Unlimited concurrent viewers</li>
+                        <li>Unlimited stream duration</li>
+                        <li>Custom storage requirements</li>
+                        <li>365+ days replay retention</li>
+                        <li><strong>4K streaming available</strong> (custom pricing)</li>
+                    </ul>
+                </div>
+
+                <div class="features-section">
+                    <h4>Everything in Business, PLUS:</h4>
+                    <ul class="feature-list">
+                        <li class="included"><strong>White-Label</strong> (fully branded)</li>
+                        <li class="included"><strong>99.9% SLA Guarantee</strong></li>
+                        <li class="included"><strong>Dedicated Account Manager</strong></li>
+                        <li class="included"><strong>Custom Integrations</strong> (CRM, ERP)</li>
+                        <li class="included"><strong>24/7 Priority Support</strong></li>
+                        <li class="included">Multi-Region Support</li>
+                        <li class="included">SSO Integration</li>
+                        <li class="included">Custom Contract Terms</li>
+                    </ul>
+                </div>
+
+                <div class="best-for">
+                    <p><strong>Best for:</strong> Multi-brand operations, global retailers, mission-critical streaming</p>
+                </div>
+
+                <a href="/contact" class="cta-button secondary">Contact Sales</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <div class="trust-signals">
+        <div class="trust-item">
+            <div class="icon">✓</div>
+            <p>No Setup Fees</p>
+        </div>
+        <div class="trust-item">
+            <div class="icon">✓</div>
+            <p>Cancel Anytime</p>
+        </div>
+        <div class="trust-item">
+            <div class="icon">✓</div>
+            <p>14-Day Free Trial</p>
+        </div>
+        <div class="trust-item">
+            <div class="icon">✓</div>
+            <p>0% Commission</p>
+        </div>
+        <div class="trust-item">
+            <div class="icon">✓</div>
+            <p>HD Streaming</p>
+        </div>
+        <div class="trust-item">
+            <div class="icon">✓</div>
+            <p>GDPR Compliant</p>
+        </div>
+    </div>
+
+    <!-- Streaming Quality Note -->
+    <div class="container" style="max-width: 800px; margin: 40px auto; padding: 24px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #667eea;">
+        <h3 style="font-size: 18px; margin-bottom: 12px; color: #1a1a1a;">📺 Professional Streaming Quality on All Plans</h3>
+        <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
+            All plans include professional HD streaming with adaptive bitrate technology. Your viewers automatically receive the best quality for their internet connection - from HD on fast connections to optimized quality on slower mobile networks. This ensures smooth, buffer-free viewing for everyone.
+        </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2>Feature Comparison</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Starter</th>
+                            <th>Professional</th>
+                            <th>Business</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-header">
+                            <td colspan="5"><strong>STREAMING CAPACITY</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Streams per month</td>
+                            <td>10</td>
+                            <td>25</td>
+                            <td>40</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Concurrent viewers</td>
+                            <td>35</td>
+                            <td>100</td>
+                            <td>150</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Max stream duration</td>
+                            <td>2 hours</td>
+                            <td>4 hours</td>
+                            <td>6 hours</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Recording storage</td>
+                            <td>25 GB</td>
+                            <td>100 GB</td>
+                            <td>500 GB</td>
+                            <td>Custom</td>
+                        </tr>
+                        <tr>
+                            <td>Replay retention</td>
+                            <td>7 days</td>
+                            <td>30 days</td>
+                            <td>90 days</td>
+                            <td>365+ days</td>
+                        </tr>
+                        
+                        <tr class="table-header">
+                            <td colspan="5"><strong>BRANDING & CUSTOMIZATION</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Platform branding visible</td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Custom logo & colors</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Custom CSS</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>White-label</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        
+                        <tr class="table-header">
+                            <td colspan="5"><strong>ANALYTICS</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Basic (views, sales, engagement)</td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Advanced (funnels, retention, heatmaps)</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Full Suite (LTV, attribution, cohorts)</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        
+                        <tr class="table-header">
+                            <td colspan="5"><strong>TEAM & COLLABORATION</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Team members</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>20</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Role-based permissions</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>API access</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        
+                        <tr class="table-header">
+                            <td colspan="5"><strong>SUPPORT</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Email support</td>
+                            <td>1 business day</td>
+                            <td>4 hours</td>
+                            <td>1 hour</td>
+                            <td>15 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>Chat support</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Phone support</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dedicated manager</td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="crossmark">✗</span></td>
+                            <td><span class="checkmark">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Is there a setup fee?</h3>
+                    <p>No setup fees. Ever. You only pay your monthly subscription.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I change plans?</h3>
+                    <p>Yes! Upgrade anytime (takes effect immediately). Downgrade anytime (takes effect next billing cycle). No penalties.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do you take commission on sales?</h3>
+                    <p><strong>No!</strong> Unlike marketplace platforms, we charge 0% commission. All your revenue is yours.</p>
+                    <div class="highlight">
+                        <strong>Example:</strong> If you sell £10,000/month on Whatnot, you pay £800 in commission (8%). With us, you pay £0. Just your monthly subscription.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What happens if I exceed my limits?</h3>
+                    <p>We'll notify you before you hit limits. You can either upgrade to the next plan or purchase additional capacity. We'll never cut you off mid-stream.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is there a contract?</h3>
+                    <p>No long-term contracts. Month-to-month billing. Cancel anytime with no penalties.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is there a free trial?</h3>
+                    <p>Yes! All plans include a 14-day free trial. Full access to your chosen plan's features. No credit card required to start.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What streaming quality do I get?</h3>
+                    <p>All plans include professional HD streaming with adaptive bitrate technology. This means viewers automatically receive the best quality for their internet connection - whether they're on fast WiFi, mobile data, or a slower connection.</p>
+                    <p style="margin-top: 12px;">The platform automatically adjusts quality in real-time to ensure smooth, buffer-free viewing for everyone. Desktop viewers on fast connections typically see HD quality, while mobile viewers get optimized quality for their device and connection speed.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why can't Starter plans have custom branding?</h3>
+                    <p>Custom branding is a professional feature that helps differentiate plans. If branding matters to your business, Professional plan provides great value with all features unlocked.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What Shopify plans do you support?</h3>
+                    <p>We support all Shopify plans - Basic, Shopify, Advanced, and Shopify Plus. Integration works seamlessly via the Storefront API.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Start Selling Live?</h2>
+            <p>Join retailers who've switched from expensive enterprise platforms and commission-heavy marketplaces.</p>
+            <div class="button-group">
+                <a href="/signup" class="cta-button white">Start Free Trial</a>
+                <a href="/demo" class="cta-button">Schedule a Demo</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.9;">No credit card required • Cancel anytime</p>
+        </div>
+    </section>
+
+</body>
+</html>

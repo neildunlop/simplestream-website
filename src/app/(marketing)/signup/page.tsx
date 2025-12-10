@@ -68,24 +68,6 @@ export default function SignupPage() {
                 </div>
               ))}
             </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">💬</span>
-                </div>
-                <div>
-                  <p className="text-gray-700 italic mb-2">
-                    &quot;The Simple Stream has transformed how we sell. Our live streams
-                    convert 3x better than our website, and setup was
-                    incredibly easy.&quot;
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    — Sarah M., Fashion Boutique Owner
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Right Side - Form */}

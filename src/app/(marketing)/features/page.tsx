@@ -32,13 +32,13 @@ const mainFeatures = [
     icon: Video,
     title: 'HD Live Streaming',
     description:
-      'Professional-grade video streaming up to 1080p. Powered by Amazon IVS for reliable, low-latency broadcasts that keep viewers engaged.',
+      'Professional HD streaming with adaptive bitrate technology on all plans. Viewers automatically receive the best quality for their connection.',
     details: [
-      'Up to 1080p Full HD quality',
+      'HD quality on all plans',
       '2-5 second ultra-low latency',
       'Adaptive bitrate streaming',
       'Global CDN delivery',
-      'Auto-quality adjustment',
+      'Buffer-free viewing experience',
     ],
     color: 'blue',
     image: '/images/features/streaming.jpg',
@@ -67,10 +67,10 @@ const mainFeatures = [
       'Show products during your stream with beautiful overlays. Viewers can add to cart without leaving the video.',
     details: [
       'Trigger products with hotkeys (1-9)',
-      'Customizable display duration',
+      'Customisable display duration',
       'One-click add to cart',
       'Auto-hide or manual control',
-      'Mobile-optimized design',
+      'Mobile-optimised design',
     ],
     color: 'purple',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
@@ -96,7 +96,7 @@ const mainFeatures = [
     icon: BarChart3,
     title: 'Analytics Dashboard',
     description:
-      'Understand your audience and optimize your streams with detailed analytics on viewers, engagement, and sales.',
+      'Understand your audience and optimise your streams with detailed analytics on viewers, engagement, and sales.',
     details: [
       'Real-time viewer count',
       'Peak viewer tracking',
@@ -116,7 +116,7 @@ const mainFeatures = [
     details: [
       'Works on all devices',
       'No app download needed',
-      'Touch-optimized controls',
+      'Touch-optimised controls',
       'Responsive video player',
       'Mobile checkout flow',
     ],
@@ -150,7 +150,7 @@ const additionalFeatures = [
   {
     icon: Palette,
     title: 'Custom Branding',
-    description: 'Match your brand with customizable colors, logos, and styling.',
+    description: 'Match your brand with customisable colours, logos, and styling.',
   },
   {
     icon: Users,
@@ -330,12 +330,12 @@ export default function FeaturesPage() {
             shopping.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
+            <a href="https://app.thesimplestream.com/register">
               <Button size="lg">
                 Start Free Trial
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </Link>
+            </a>
             <Link href="/demo">
               <Button size="lg" variant="outline">
                 Request a Demo

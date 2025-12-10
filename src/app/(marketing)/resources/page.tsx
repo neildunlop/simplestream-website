@@ -25,6 +25,7 @@ const guides = [
     icon: PlayCircle,
     category: 'Getting Started',
     readTime: '10 min read',
+    href: '/resources/guides/getting-started',
   },
   {
     title: 'Shopify Integration Guide',
@@ -33,6 +34,7 @@ const guides = [
     icon: ShoppingCart,
     category: 'Integration',
     readTime: '5 min read',
+    href: '/resources/guides/shopify-integration',
   },
   {
     title: 'Live Streaming Best Practices',
@@ -41,14 +43,16 @@ const guides = [
     icon: Lightbulb,
     category: 'Best Practices',
     readTime: '15 min read',
+    href: '/resources/guides/best-practices',
   },
   {
-    title: 'Maximizing Engagement',
+    title: 'Maximising Engagement',
     description:
       'Strategies for keeping viewers engaged and driving more sales during streams.',
     icon: BarChart3,
     category: 'Strategy',
     readTime: '12 min read',
+    href: '/resources/guides/maximising-engagement',
   },
   {
     title: 'Product Presentation Techniques',
@@ -57,14 +61,16 @@ const guides = [
     icon: BookOpen,
     category: 'Best Practices',
     readTime: '8 min read',
+    href: '/resources/guides/product-presentation',
   },
   {
     title: 'Analytics & Performance Tracking',
     description:
-      'Understanding your stream analytics and optimizing for better results.',
+      'Understanding your stream analytics and optimising for better results.',
     icon: FileText,
     category: 'Analytics',
     readTime: '10 min read',
+    href: '/resources/guides/analytics',
   },
 ];
 
@@ -74,18 +80,21 @@ const resources = [
     description: 'Pre-stream checklist to ensure you\'re ready for a successful broadcast.',
     type: 'PDF Download',
     icon: Download,
+    href: '/resources/downloads/checklist',
   },
   {
     title: 'Stream Planning Template',
     description: 'Template for planning your product lineup and stream structure.',
     type: 'PDF Download',
     icon: Download,
+    href: '/resources/downloads/stream-planning',
   },
   {
     title: 'Lighting Setup Guide',
     description: 'Recommended lighting setups for different budgets and spaces.',
     type: 'PDF Download',
     icon: Download,
+    href: '/resources/downloads/lighting-guide',
   },
 ];
 
@@ -113,9 +122,10 @@ export default function ResourcesPage() {
             {guides.map((guide) => {
               const Icon = guide.icon;
               return (
-                <div
+                <Link
                   key={guide.title}
-                  className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all group cursor-pointer"
+                  href={guide.href}
+                  className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all group"
                 >
                   <div className="flex items-center gap-2 text-sm text-blue-600 mb-4">
                     <Icon className="w-4 h-4" />
@@ -133,7 +143,7 @@ export default function ResourcesPage() {
                     </span>
                     <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -148,14 +158,15 @@ export default function ResourcesPage() {
             {resources.map((resource) => {
               const Icon = resource.icon;
               return (
-                <div
+                <Link
                   key={resource.title}
-                  className="bg-gray-50 p-6 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer"
+                  href={resource.href}
+                  className="bg-gray-50 p-6 rounded-xl hover:bg-gray-100 transition-colors group"
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-900">
+                  <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
                     {resource.title}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4">
@@ -164,7 +175,7 @@ export default function ResourcesPage() {
                   <span className="text-sm text-blue-600 font-medium">
                     {resource.type}
                   </span>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -256,12 +267,12 @@ export default function ResourcesPage() {
           <p className="text-gray-600 mb-6">
             Start your free trial and experience live shopping for yourself.
           </p>
-          <Link href="/signup">
+          <a href="https://app.thesimplestream.com/register">
             <Button size="lg">
               Start Free Trial
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

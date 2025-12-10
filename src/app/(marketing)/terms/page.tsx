@@ -140,8 +140,6 @@ export default function TermsPage() {
           </p>
           <p>
             Email: legal@thesimplestream.com
-            <br />
-            Address: London, United Kingdom
           </p>
         </div>
       </div>

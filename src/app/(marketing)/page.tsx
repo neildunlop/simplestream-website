@@ -74,12 +74,12 @@ export default function HomePage() {
                 Shopify store. Start selling live in days, not months.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/signup">
+                <a href="https://app.thesimplestream.com/register">
                   <Button size="lg" className="w-full sm:w-auto">
                     Start Free Trial
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
-                </Link>
+                </a>
                 <Link href="/how-it-works">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <Play className="w-4 h-4 mr-2" />
@@ -332,12 +332,12 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/signup">
+            <a href="https://app.thesimplestream.com/register">
               <Button size="lg">
                 Start Your Free Trial
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -409,9 +409,9 @@ export default function HomePage() {
             </div>
             <div>
               <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                1080p
+                HD
               </p>
-              <p className="text-gray-600">HD video quality</p>
+              <p className="text-gray-600">Adaptive streaming</p>
             </div>
             <div>
               <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
@@ -451,11 +451,11 @@ export default function HomePage() {
                   </li>
                   <li className="flex items-center justify-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    Up to 50 viewers
+                    Up to 35 viewers
                   </li>
                   <li className="flex items-center justify-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    720p streaming
+                    HD streaming
                   </li>
                 </ul>
               </div>
@@ -472,15 +472,15 @@ export default function HomePage() {
                 <ul className="text-sm text-gray-600 space-y-2">
                   <li className="flex items-center justify-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    20 streams/month
+                    25 streams/month
                   </li>
                   <li className="flex items-center justify-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    Up to 75 viewers
+                    Up to 100 viewers
                   </li>
                   <li className="flex items-center justify-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    1080p streaming
+                    Custom branding
                   </li>
                 </ul>
               </div>
@@ -494,15 +494,15 @@ export default function HomePage() {
                 <ul className="text-sm text-gray-600 space-y-2">
                   <li className="flex items-center justify-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    30 streams/month
+                    40 streams/month
                   </li>
                   <li className="flex items-center justify-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    Up to 100 viewers
+                    Up to 150 viewers
                   </li>
                   <li className="flex items-center justify-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    Priority support
+                    API access
                   </li>
                 </ul>
               </div>
@@ -530,12 +530,12 @@ export default function HomePage() {
             and commission-heavy marketplaces.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
+            <a href="https://app.thesimplestream.com/register">
               <Button size="lg" variant="secondary">
                 Start Free Trial
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </Link>
+            </a>
             <Link href="/demo">
               <Button
                 size="lg"

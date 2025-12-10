@@ -426,12 +426,12 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
               {industry.heroDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/signup">
+              <a href="https://app.thesimplestream.com/register">
                 <Button size="lg" variant="secondary">
                   Start Free Trial
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
-              </Link>
+              </a>
               <Link href="/demo">
                 <Button
                   size="lg"
@@ -530,12 +530,12 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
             their business with live shopping.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
+            <a href="https://app.thesimplestream.com/register">
               <Button size="lg">
                 Start Free Trial
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </Link>
+            </a>
             <Link href="/demo">
               <Button size="lg" variant="outline">
                 Request a Demo

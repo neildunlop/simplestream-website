@@ -65,9 +65,9 @@ export function Header() {
             <Link href="/demo">
               <Button variant="outline">Request Demo</Button>
             </Link>
-            <Link href="/signup">
+            <a href="https://app.thesimplestream.com/register">
               <Button>Start Free Trial</Button>
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -135,9 +135,9 @@ export function Header() {
                   Request Demo
                 </Button>
               </Link>
-              <Link href="/signup" className="block" onClick={() => setMobileMenuOpen(false)}>
+              <a href="https://app.thesimplestream.com/register" className="block" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="w-full">Start Free Trial</Button>
-              </Link>
+              </a>
             </div>
           </div>
         )}

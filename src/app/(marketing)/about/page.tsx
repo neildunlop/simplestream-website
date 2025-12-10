@@ -206,12 +206,12 @@ export default function AboutPage() {
             shopping.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
+            <a href="https://app.thesimplestream.com/register">
               <Button size="lg">
                 Start Free Trial
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </Link>
+            </a>
             <Link href="/contact">
               <Button size="lg" variant="outline">
                 Contact Us

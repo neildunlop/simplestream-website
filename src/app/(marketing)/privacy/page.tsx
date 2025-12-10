@@ -75,7 +75,7 @@ export default function PrivacyPage() {
             <li>Process transactions and send related information</li>
             <li>Send technical notices, updates, and support messages</li>
             <li>Respond to your comments, questions, and requests</li>
-            <li>Monitor and analyze usage patterns and trends</li>
+            <li>Monitor and analyse usage patterns and trends</li>
             <li>Detect, prevent, and address technical issues or fraud</li>
             <li>
               Send marketing communications (with your consent, which you can
@@ -209,8 +209,6 @@ export default function PrivacyPage() {
           <p>For questions about this Privacy Policy, please contact:</p>
           <p>
             Email: privacy@thesimplestream.com
-            <br />
-            Address: London, United Kingdom
           </p>
           <p>
             You also have the right to lodge a complaint with the Information

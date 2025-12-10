@@ -6,7 +6,6 @@ import {
   Users,
   ArrowRight,
   Check,
-  Play,
   Keyboard,
   ShoppingCart,
   BarChart3,
@@ -36,11 +35,11 @@ const steps = [
     number: 2,
     title: 'Set Up Your Stream',
     description:
-      'Create a new stream, select your products, and customize your settings. No technical expertise needed.',
+      'Create a new stream, select your products, and customise your settings. No technical expertise needed.',
     icon: Video,
     details: [
       'Choose products to feature',
-      'Set stream quality (720p or 1080p)',
+      'HD streaming with adaptive quality',
       'Configure product overlay timing',
       'Schedule or go live immediately',
     ],
@@ -131,19 +130,6 @@ export default function HowItWorksPage() {
             From connecting your store to making your first sale - get started
             in minutes, not months.
           </p>
-        </div>
-
-        {/* Video Demo Placeholder */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg cursor-pointer hover:bg-blue-700 transition-colors">
-                <Play className="w-10 h-10 text-white fill-white" />
-              </div>
-              <p className="text-gray-600 font-medium">Watch How It Works</p>
-              <p className="text-gray-500 text-sm mt-1">2 minute overview</p>
-            </div>
-          </div>
         </div>
 
         {/* Steps */}
@@ -257,12 +243,12 @@ export default function HowItWorksPage() {
             shopping.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
+            <a href="https://app.thesimplestream.com/register">
               <Button size="lg">
                 Start Free Trial
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </Link>
+            </a>
             <Link href="/demo">
               <Button size="lg" variant="outline">
                 Request a Demo
