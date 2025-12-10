@@ -9,6 +9,7 @@ import {
   Keyboard,
   ShoppingCart,
   BarChart3,
+  Play,
 } from 'lucide-react';
 
 export const metadata = {
