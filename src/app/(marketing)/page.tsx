@@ -540,7 +540,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent text-white border-white hover:bg-white/10"
+                className="!bg-transparent !text-white !border-white hover:!bg-white/10"
               >
                 Schedule a Demo
               </Button>

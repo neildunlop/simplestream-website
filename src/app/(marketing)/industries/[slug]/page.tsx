@@ -58,7 +58,7 @@ const industries: Record<
       {
         title: 'Good Lighting is Essential',
         content:
-          'Invest in ring lights or softboxes. Collectors want to see true colors and condition.',
+          'Invest in ring lights or softboxes. Collectors want to see true colours and condition.',
       },
       {
         title: 'Use a Card Stand',
@@ -158,12 +158,12 @@ const industries: Record<
       {
         title: 'True Color Accuracy',
         description:
-          'Customers see real colors in real lighting. No more "it looked different online."',
+          'Customers see real colours in real lighting. No more "it looked different online."',
       },
       {
         title: 'Skincare Consultations',
         description:
-          'Answer questions about skin types and concerns. Personalized recommendations sell.',
+          'Answer questions about skin types and concerns. Personalised recommendations sell.',
       },
     ],
     useCases: [
@@ -229,7 +229,7 @@ const industries: Record<
     useCases: [
       'Room makeovers',
       'Product demonstrations',
-      'Organization tips',
+      'Organisation tips',
       'Seasonal decor reveals',
       'Kitchen appliance demos',
       'Furniture assembly and styling',

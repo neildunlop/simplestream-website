@@ -138,7 +138,7 @@ export default function PrivacyPage() {
 
           <h2>7. Data Security</h2>
           <p>
-            We implement appropriate technical and organizational measures to
+            We implement appropriate technical and organisational measures to
             protect your information, including:
           </p>
           <ul>

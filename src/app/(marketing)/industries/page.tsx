@@ -60,7 +60,7 @@ const industries = [
     benefits: [
       'Live product demonstrations',
       'Tutorial-style content',
-      'Show true colors and textures',
+      'Show true colours and textures',
       'Answer skincare questions',
     ],
     color: 'from-purple-100 to-violet-100',

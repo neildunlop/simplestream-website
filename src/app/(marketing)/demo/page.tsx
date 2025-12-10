@@ -53,7 +53,7 @@ export default function DemoPage() {
     {
       icon: Video,
       title: 'Live Platform Demo',
-      description: 'See all features in action with a personalized walkthrough.',
+      description: 'See all features in action with a personalised walkthrough.',
     },
     {
       icon: Users,
@@ -84,7 +84,7 @@ export default function DemoPage() {
           </h1>
           <p className="text-xl text-gray-600 mb-8">
             Thanks for your interest in The Simple Stream. We&apos;ll reach out within 24
-            hours to schedule your personalized demo.
+            hours to schedule your personalised demo.
           </p>
           <div className="bg-gray-50 rounded-xl p-6 text-left">
             <h2 className="font-semibold mb-4 text-gray-900">
@@ -130,11 +130,11 @@ export default function DemoPage() {
         {/* Hero */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Request a Personalized Demo
+            Request a Personalised Demo
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             See how The Simple Stream can help your business sell more with live
-            shopping. Get a personalized walkthrough tailored to your needs.
+            shopping. Get a personalised walkthrough tailored to your needs.
           </p>
         </div>
 
